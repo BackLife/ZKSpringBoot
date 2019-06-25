@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<config-name>zkspringboot-demo</config-name>
+
+	<!-- breeze atlantic sapphire silvertail  -->
+	<library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>sapphire</value>
+    </library-property>
+    
+    
+    <client-config>
+	    <debug-js>true</debug-js>
+	</client-config>
+	<library-property>
+	    <name>org.zkoss.web.classWebResource.cache</name>
+	    <value>false</value>
+	</library-property>
+	<library-property>
+	    <name>org.zkoss.zk.WPD.cache</name>
+	    <value>false</value>
+	</library-property>
+	
+	
+</zk>
