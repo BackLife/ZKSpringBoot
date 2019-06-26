@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?page id="EF" title="ZK管理系统" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+
+	<window id="win" width="100%" height="99%"
+		apply="com.demo.main.sys.ctrl.Menu_Ctrl" context="noPopup">
+
+		<label id="lbl_DefFunc" value="" visible="false" />
+
+		<borderlayout>
+			<north size="55px" border="1">
+				<hbox pack="stretch" width="100%">
+					<separator />
+					<div align="left">
+						<image src="/img/LOGO.png" width="350px"
+							height="50px" /><!--  -->
+					</div>
+					<div align="center">
+						<image src="/img/Chinapay_logo.png"
+							width="214px" height="50px" />
+					</div>
+
+					<div align="center">
+						<image src="/img/LAKALA.jpg" width="214px"
+							height="50px" />
+					</div>
+
+					<div align="right">
+						<label id="lbl_user" value="使用者，您好"></label>
+						<button id="btn_Logout" width="48px"
+							height="24px" label="注销" tooltiptext="注销请按这里!!" />
+					</div>
+				</hbox>
+			</north>
+
+			<west size="220px" splittable="true" flex="true"
+				collapsible="true" title="菜单">
+				<!-- <tree id="tree" width="99%" rows="8" treeitemRenderer="${ftr}"  model="${stm}" > -->
+				<tree id="thetree" width="99%" />
+
+			</west>
+			<center id="center" style="overflow-y: auto;">
+					<div id="contentDiv" width="100%" >
+						<tabbox id="tbx" height="auto"  >
+							<!-- 主页 -->
+							<tabs id="tabs">
+								<tab label="主页" />
+							</tabs>
+							<tabpanels id="Tab_Panel" height="auto" >
+								<tabpanel id="homePage" height="auto" >
+									<include
+										src="~./zul/sys/AMS_Home.zul" width="98%" />
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</div>
+			</center>
+		</borderlayout>
+	</window>
+
+	<timer id="timerKeepAliveSession" repeats="true" delay="300000"
+		running="true" onTimer="" />
+	<menupopup id="noPopup" />
+
+</zk>

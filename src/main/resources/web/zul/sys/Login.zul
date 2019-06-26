@@ -1,0 +1,47 @@
+<?page title="ZK管理系统" contentType="text/html;charset=UTF-8"?>
+
+
+<vlayout xmlns:c="client">
+
+		<window id="loginWin" 
+				title="ZK管理系统" 
+				visible="true" 
+				position="center"
+				apply="com.demo.main.sys.ctrl.Login_Ctrl" 
+		>
+		
+		<grid>
+			<columns>
+				<column label="" width="30%"/>
+				<column label="" width="70%"/>
+			</columns>
+			<rows>
+				<row>
+					<label value="用户名:" />
+					<textbox id="usrName"  value="" />
+				</row>
+				<row>
+					<label value="密码:" />
+					<textbox id="usrPwd" type="password"  value=""/>
+				</row>
+
+       		    <row>
+        	    	<cell sclass="loginCtl" colspan="2">
+               			<hlayout> 
+	                   		<button id="btn_Init" label="登录" width="100px" autodisable="self"  /> 
+    	               		<!-- <button id="btn_CHGPWD" label="变更密码" width="100px" autodisable="self">
+    	               			<attribute name="onClick">
+	                    			<![CDATA[ 
+	                            		Executions.getCurrent().sendRedirect("~./zul/sys/demo.zul", "_self"); 
+	                        		]]>
+                        		</attribute> 
+    	               		</button> -->
+	               		</hlayout>
+               		</cell>
+             	</row>  	
+			</rows>
+		</grid>
+
+</window>
+	
+</vlayout>

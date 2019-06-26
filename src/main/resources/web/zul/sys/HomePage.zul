@@ -1,0 +1,141 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<window width="auto" height="auto"
+		apply="com.demo.main.sys.ctrl.HomePage_Ctrl" context="noPopup">
+
+		<vbox spacing="1">
+			<hbox spacing="1">
+				<panel title="快捷方式" border="normal" width="auto"
+					height="263px" style="text-align: center;">
+					<panelchildren id="schedule">
+						<html>&lt;/br &gt;</html>
+					</panelchildren>
+				</panel>
+
+				
+
+
+				<panel title="系统公告" border="normal" width="auto"
+					height="263px">
+					<panelchildren>
+						<html>
+							&lt;h4&gt;Direct RIA&lt;/h4&gt; &lt;ul&gt;
+							&lt;li&gt;No JavaScript&lt;/li&gt;
+							&lt;li&gt;No Exposure of Biz
+							Logic&lt;/li&gt; &lt;li&gt;No Sync
+							Hassle&lt;/li&gt; &lt;li&gt;No Data
+							Inconsistency&lt;/li&gt; &lt;li&gt;No
+							Security Hazard&lt;/li&gt; &lt;/ul&gt;
+						</html>
+					</panelchildren>
+				</panel>
+
+				
+
+
+				<panel title="待办事项" border="normal" width="auto"
+					height="263px">
+					<panelchildren>
+						<html>
+							&lt;h4&gt;Direct RIA&lt;/h4&gt; &lt;ul&gt;
+							&lt;li&gt;Boosting Productivity&lt;/li&gt;
+							&lt;li&gt;Minimal Maintenance&lt;/li&gt;
+							&lt;li&gt;Engaging User
+							Experience&lt;/li&gt; &lt;li&gt;Fast
+							Prototyping&lt;/li&gt; &lt;li&gt;Real-time
+							Push&lt;/li&gt; &lt;/ul&gt;
+						</html>
+					</panelchildren>
+				</panel>
+
+				
+
+			<panel title="时钟 "  border="normal" width="auto" >  
+		 	<panelchildren>		
+		 		 <script>
+			 		 <![CDATA[
+							var currentmillis;
+							var fid;
+							
+							function updateClock(){
+								  currentmillis = currentmillis + 1000;
+								  var currentTime = new Date (currentmillis);
+								
+								  var currentHours = currentTime.getHours ( );
+								  var currentMinutes = currentTime.getMinutes ( );
+								  var currentSeconds = currentTime.getSeconds ( );							
+								 
+								  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+								  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;							
+								  
+								  var timeOfDay = ( currentHours < 12 ) ? "AM " : "PM ";							
+								
+								  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;	 
+								  currentHours = ( currentHours == 0 ) ? 12 : currentHours;							
+								
+								  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;							
+								
+								  document.getElementById(fid).value = currentTimeString;
+								  setTimeout("updateClock()", 1000 );
+							}
+								  
+						  function callClock(cm, ffid){
+						  	currentmillis = cm;
+						  	fid = ffid;
+						  	updateClock();	  	
+						  } 
+					]]>
+				</script>
+
+				<textbox id="now"	style="display:inline; font-size:28px; text-align:center; font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; text-shadow:0 0 3px red;" readonly="true" width="auto" tooltiptext="Server time (almost)" />
+					<!-- just before the /zk closing tag -->
+					<zscript>
+						<![CDATA[
+								Clients.evalJavaScript("callClock(" + java.util.Calendar.getInstance().getTimeInMillis() + ", \"" + now.getUuid() + "\")");
+						]]>
+					</zscript>
+					<!-- 日历控件 -->
+		 				<calendar/>
+		 	</panelchildren>	
+		 </panel>
+		</hbox>
+		
+		
+			<hbox  height="auto">
+				<panel title="操作日志" border="normal" width="100%"  height="300px"  >
+					<panelchildren style="overflow: auto;">
+						<html >
+							&lt;h4&gt;主页模块设计实现方案&lt;/h4&gt;
+							&lt;ul&gt;
+								&lt;li&gt;快捷方式：&lt;/li&gt;
+								&lt;ul&gt;
+									&lt;li&gt;添加/删除&lt;/li&gt;
+									&lt;li&gt;点击添加，弹框下拉复选所有有权限的3级菜单，并默认选中已存在的值，点击提交保存并刷新快捷方式模块&lt;/li&gt;
+								&lt;/ul&gt;
+							
+								&lt;li&gt;系统公告&lt;/li&gt;
+								&lt;ul&gt;
+									&lt;li&gt;系统管理员发布，根据时间倒叙排列，展示最近十条，点击弹框展示详情&lt;/li&gt;
+								&lt;/ul&gt;
+								
+								&lt;li&gt;待办事项&lt;/li&gt;
+								&lt;ul&gt;
+									&lt;li&gt;点击添加，弹框输入待办具体事项，和提醒时间/办理时间 ， 按照提醒时间、办理时间倒序，点击已办理则不再展示，双击可更改&lt;/li&gt;
+									&lt;li&gt;可能要加待办事项页签来管理过多或已超时的事项&lt;/li&gt;
+								&lt;/ul&gt;
+								
+								&lt;li&gt;操作日志&lt;/li&gt;
+								&lt;ul&gt;
+									&lt;li&gt;重要节点向操作日志表添加记录，管理员重大或特定事项操作加入系统日志（谁能看到）， 是否提供操作详情查看，待定&lt;/li&gt;
+								&lt;/ul&gt;
+							&lt;/ul&gt;
+						</html>
+					</panelchildren>
+				</panel>
+			</hbox>
+		</vbox>
+
+
+	</window>
+</zk>
