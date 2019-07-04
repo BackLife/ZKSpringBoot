@@ -1,21 +1,13 @@
 <?page title="ZK管理系统" contentType="text/html;charset=UTF-8"?>
 
-<zk > 
 
-		
-<borderlayout  style="background-image:url('../images/backgound.jpg')">
+<vlayout xmlns:c="client" style="background-image:url('../images/backgound.jpg')">
 
-<north>
-
-<window id="loginWin" 
-				width="400px"
-				border="normal"
-				mode="overlapped"
+		<window id="loginWin" 
 				title="ZK管理系统" 
 				visible="true" 
 				position="center"
-				apply="com.demo.main.sys.ctrl.Login_Ctrl " 
-		
+				apply="com.demo.main.sys.ctrl.Login_Ctrl" 
 		>
 		
 		<grid>
@@ -25,26 +17,25 @@
 			</columns>
 			<rows>
 				<row>
-					<label value="登录账户:" />
-					<textbox id="usrName"  value="" width="90%" />
+					<label value="用户名:" />
+					<textbox id="usrName"  value="" />
 				</row>
 				<row>
-					<label value="登录密码:" />
-					<textbox id="usrPwd" type="password"  value="" width="90%"/>
+					<label value="密码:" />
+					<textbox id="usrPwd" type="password"  value=""/>
 				</row>
 
        		    <row>
         	    	<cell sclass="loginCtl" colspan="2" align="center">
                			<hlayout> 
 	                   		<button id="btn_Init" label="登录" width="100px" autodisable="self"  /> 
-	                   		<space/>
-    	               		<button id="btn_CHGPWD" label="变更密码" width="100px" autodisable="self">
+    	               		<!-- <button id="btn_CHGPWD" label="变更密码" width="100px" autodisable="self">
     	               			<attribute name="onClick">
 	                    			<![CDATA[ 
 	                            		Executions.getCurrent().sendRedirect("~./zul/sys/demo.zul", "_self"); 
 	                        		]]>
                         		</attribute> 
-    	               		</button>
+    	               		</button> -->
 	               		</hlayout>
                		</cell>
              	</row>  	
@@ -52,9 +43,5 @@
 		</grid>
 
 </window>
-</north>
-
-</borderlayout>
-
-
-</zk>
+	
+</vlayout>
