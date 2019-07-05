@@ -26,7 +26,7 @@ public class Login_Ctrl extends GenericForwardComposer {
 
 	private static final long serialVersionUID = 1L;
 
-	private Textbox txb_Name, txb_Pwd;
+	private Textbox userName, userPwd;
 
 	String userId = "";
 	String passWord = "";
@@ -43,23 +43,18 @@ public class Login_Ctrl extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 	}
 
-	public void onClick$btn_Init() {
-		System.out.println("====Login_Ctrl====onClick$btn_Init===Start==");
-		onLogin();
-	}
-	
-	private void onLogin() {
-		System.out.println("====Login_Ctrl====onLogin===Start==");
+	public void onClick$login() {
+		System.out.println("====Login_Ctrl====Login===Start==");
 		logger.debug("====Login_Ctrl====onLogin===Start==");
 		
 		int resultCode = -1;
 
-		if (txb_Name.getValue() != null && !txb_Name.getValue().equals("")) {
-			userId = txb_Name.getValue().trim();
+		if (userName.getValue() != null && !userName.getValue().equals("")) {
+			userId = userName.getValue().trim();
 		}
 
-		if (txb_Pwd.getValue() != null && !txb_Pwd.getValue().equals("")) {
-			passWord = txb_Pwd.getValue().trim();
+		if (userPwd.getValue() != null && !userPwd.getValue().equals("")) {
+			passWord = userPwd.getValue().trim();
 		}
 
 		System.out.println("UserId======" + userId);

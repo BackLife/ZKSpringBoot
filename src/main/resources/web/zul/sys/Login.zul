@@ -1,12 +1,62 @@
 <?page title="ZK管理系统" contentType="text/html;charset=UTF-8"?>
 
-<zk > 
+<zk>
 
-		
-<borderlayout  style="background-image:url('../images/backgound.jpg')">
 
-<north>
+	<borderlayout>
 
+		<center
+			style="background-image:url('../images/backgound.jpg')">
+
+
+			<div align="center">
+					<panel title="ZK管理系统" border="normal" width="400px" 
+						height="auto" style="text-align: center;padding-top:200px;"
+						apply="com.demo.main.sys.ctrl.Login_Ctrl" >
+
+						<panelchildren id="schedule">
+							<grid>
+								<columns>
+									<column label="" width="30%" />
+									<column label="" width="70%" />
+								</columns>
+								<rows>
+									<row>
+										<label value="登录账户:" />
+										<textbox id="userName" value=""
+											width="90%" />
+									</row>
+									<row>
+										<label value="登录密码:" />
+										<textbox id="userPwd"
+											type="password" value="" width="90%" />
+									</row>
+
+									<row>
+										<cell sclass="loginCtl"
+											colspan="2" align="center">
+											<hlayout>
+												<button id="login"
+													label="登录" width="100px" autodisable="self" />
+												<space />
+												<button id="btn_CHGPWD"
+													label="变更密码" width="100px" autodisable="self">
+													<attribute name="onClick">
+	                    			<![CDATA[ 
+	                            		Executions.getCurrent().sendRedirect("~./zul/sys/demo.zul", "_self"); 
+	                        		]]>
+                        		</attribute> 
+    	               		</button>
+	               		</hlayout>
+               		</cell>
+             	</row>  	
+			</rows>
+		</grid>
+		</panelchildren>
+	</panel>
+</div>
+
+<!-- 
 <window id="loginWin" 
 				width="400px"
 				border="normal"
@@ -51,8 +101,8 @@
 			</rows>
 		</grid>
 
-</window>
-</north>
+</window> -->
+</center>
 
 </borderlayout>
 
